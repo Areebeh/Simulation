@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Queuing Model Formulas</title>
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <div class="form-card">
+      <h1>Queuing Model Calculator</h1>
+
+      <label for="queuing-model">Select Queuing System</label>
+      <select id="queuing-model" onchange="Addvalues()">
+        <option value="">--Select a model--</option>
+        <option value="M/M/1">M/M/1</option>
+        <option value="M/M/2">M/M/2</option>
+        <option value="M/G/1">M/G/1</option>
+        <option value="M/G/2">M/G/2</option>
+        <option value="G/G/1">G/G/1</option>
+        <option value="G/G/2">G/G/2</option>
+      </select>
+
+      <input type="number" placeholder="Arrival Rate" id="lambda" />
+      <input type="number" placeholder="Service Rate" id="mew" />
+      <input type="number" placeholder="Min Service Time" id="min" />
+      <input type="number" placeholder="Max Service Time" id="max" />
+      <input type="number" placeholder="Variance of Arrival Rate" id="variance-1" />
+      <input type="number" placeholder="Variance of Service Rate" id="variance-2" />
+      <div id="chi-sq-arrival">
+        <label for="arrival-times">Arrival Times (comma separated):</label>
+        <textarea id="arrival-times" placeholder="Enter arrival times..."></textarea>
+      </div>
+
+      <div id="chi-sq-service">
+        <label for="service-times">Service Times (comma separated):</label>
+        <textarea id="service-times" placeholder="Enter service times..."></textarea>
+      </div>
+
+      <button onclick="Calculate()">Calculate</button>
+
+      <div class="results">
+        <div>
+          <strong>Server Utilization:</strong>
+          <p id="utilization"></p>
+        </div>
+        <div>
+          <strong>Avg Queue Length:</strong>
+          <p id="avg-queue-length"></p>
+        </div>
+        <div>
+          <strong>Avg Waiting Time (Queue):</strong>
+          <p id="avg-waitingTime-queue"></p>
+        </div>
+        <div>
+          <strong>Avg Waiting Time (System):</strong>
+          <p id="avg-waitingTime-system"></p>
+        </div>
+        <div>
+          <strong>Avg Queue Length (System):</strong>
+          <p id="avg-queue-length-system"></p>
+        </div>
+        <div id="chi-square-arrival-result"></div>
+        <div id="chi-square-service-result"></div>
+      </div>
+
+      <button class="home-btn" onclick="goToHomePage()">⬅ Home</button>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>

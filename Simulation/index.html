@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queuing Simulation & Model</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@mui/material@5.0.0-beta.2/dist/material-ui.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="main-wrapper">
+        <div class="form">
+          <div class="header">
+            <h1>Queueing Simulation</h1>
+          </div>
+          <div class="input-group">
+            <label for="queuing-model">Type of Queuing Model</label>
+            <select
+              id="queuing-model"
+              class="mui-select"
+              onchange="Addvalues()"
+            >
+              <option value="">--Select any distribution--</option>
+              <option value="M/M/1">M/M/1</option>
+              <option value="M/M/2">M/M/2</option>
+              <option value="M/G/1">M/G/1</option>
+              <option value="M/G/2">M/G/2</option>
+              <option value="G/G/1">G/G/1</option>
+              <option value="G/G/2">G/G/2</option>
+            </select>
+          </div>
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="mean-arrival">Mean of Arrival Distribution</label> -->
+          <input
+            type="text"
+            id="mean-arrival"
+            class="mui-input"
+            placeholder="Mean of Arrival Distribution"
+          />
+          <!-- </div> -->
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="service-mean">Mean of Service</label> -->
+          <input
+            type="number"
+            id="service-mean"
+            class="mui-input"
+            placeholder="Mean of Service"
+          />
+          <!-- </div> -->
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="service_min">Service Minimum</label> -->
+          <input
+            type="text"
+            id="service_min"
+            class="mui-input"
+            placeholder="Service Minimum"
+          />
+          <!-- </div> -->
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="service_max">Service Maximum</label> -->
+          <input
+            type="text"
+            id="service_max"
+            class="mui-input"
+            placeholder="Service Maximum"
+          />
+          <!-- </div> -->
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="avg_interarrival">Average Inter-arrival Time</label> -->
+          <input
+            type="number"
+            id="avg_interarrival"
+            class="mui-input"
+            placeholder="Average Inter-arrival Time"
+          />
+          <!-- </div> -->
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="avg_service">Average Service Time</label> -->
+          <input
+            type="number"
+            id="avg_service"
+            class="mui-input"
+            placeholder="Average Service Time"
+          />
+          <!-- </div> -->
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="var_arrival">Variance of Arrival Time</label> -->
+          <input
+            type="number"
+            id="var_arrival"
+            class="mui-input"
+            placeholder="Variance of Arrival Time"
+          />
+          <!-- </div> -->
+
+          <!-- <div class="input-group"> -->
+          <!-- <label for="var_service">Variance of Service Time</label> -->
+          <input
+            type="number"
+            id="var_service"
+            class="mui-input"
+            placeholder="Variance of Service Time"
+          />
+          <!-- </div> -->
+
+          <button class="mui-button" onclick="Calculate()">Calculate</button>
+        </div>
+
+        <div class="results">
+          <div class="result">
+            <span><b>Server Utilization:</b></span>
+            <p id="server-utlization">0%</p>
+          </div>
+          <div class="result">
+            <span><b>Average Turnaround Time:</b></span>
+            <p id="avg-turnaround">0s</p>
+          </div>
+          <div class="result">
+            <span><b>Average Wait Time:</b></span>
+            <p id="avg-wait">0s</p>
+            <span><b>Average Response Time:</b></span>
+            <p id="avg-response">0s</p>
+          </div>
+          <div
+            id="chi-square-results"
+            style="
+              margin-top: 20px;
+              font-family: Arial;
+              padding: 10px;
+              border: 1px solid #ccc;
+              border-radius: 10px;
+            "
+          >
+            <h3>Chi-Square Goodness of Fit Test Results</h3>
+            <div id="interarrival-chi"></div>
+            <div id="service-chi"></div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table id="simulation_table" class="mui-table">
+            <thead>
+              <tr>
+                <th>Serial Number</th>
+                <th>Cp Lookup</th>
+                <th>Cp</th>
+                <th>Avg Time between Arrival</th>
+                <th>Inter Arrival</th>
+                <th>Arrival Time</th>
+                <th>Service Time</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Turnaround Time</th>
+                <th>Wait Time</th>
+                <th>Response Time</th>
+                <th>Server</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamic Table Content -->
+            </tbody>
+          </table>
+        </div>
+
+        <button class="mui-button home-btn" onclick="goToHomePage()">
+          Home
+        </button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

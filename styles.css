@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: #333;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 40px;
+  text-align: center;
+  margin: auto;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #3a3a3a;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #6a7dff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.card-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  background-color: #ff4081;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.card-btn:hover {
+  background-color: #e040fb;
+  transform: scale(1.05);
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 1.1rem;
+}
+
+.footer h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer li {
+  color: #555;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 30px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .main-container {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+  }
+
+  .card p {
+    font-size: 1rem;
+  }
+
+  .card-btn {
+    font-size: 0.95rem;
+  }
+}
